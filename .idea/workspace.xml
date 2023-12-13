@@ -4,26 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbdfe57c-8da6-4deb-a560-bcd141c86913" name="Changes" comment="make test automation structure - data driven, capture screenshot, multiple browser support">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/glTest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gl/automate/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gl/automate/Alerts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gl/automate/Dashboard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gl/automate/LoginPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gl/automate/Reports.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gl/automate/common/CaptureService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gl/automate/common/CaptureTransaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gl/automate/common/LaunchTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/gl/automate/common/WebDriverManager.java" afterDir="false" />
+    <list default="true" id="dbdfe57c-8da6-4deb-a560-bcd141c86913" name="Changes" comment="make test automation structure">
       <change afterPath="$PROJECT_DIR$/test.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/gl/automate/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/gl/automate/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/gl/automate/common/LaunchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/gl/automate/common/LaunchTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +92,15 @@
       <option name="presentableId" value="Default" />
       <updated>1702364281917</updated>
     </task>
+    <task id="LOCAL-00001" summary="make test automation structure">
+      <option name="closed" value="true" />
+      <created>1702388612293</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702388612293</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,6 +116,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="make test automation structure - data driven, capture screenshot, multiple browser support" />
-    <option name="LAST_COMMIT_MESSAGE" value="make test automation structure - data driven, capture screenshot, multiple browser support" />
+    <MESSAGE value="make test automation structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="make test automation structure" />
   </component>
 </project>

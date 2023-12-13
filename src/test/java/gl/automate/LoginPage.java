@@ -6,7 +6,10 @@ import gl.automate.common.CaptureTransaction;
 import gl.automate.common.LaunchTest;
 import org.apache.poi.ss.usermodel.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -20,31 +23,36 @@ public class LoginPage extends LaunchTest {
         Thread.sleep(seconds * 1000L);
     }
     @Test(dataProvider = "loginData")
-    public void loginUAT() throws InterruptedException {
+    public void loginUAT(String email, String password) throws InterruptedException {
         test = extent.createTest("Login to UAT");
-        String uatURL = getTestUrl("test.uat");
-        //String pulsecxURL = "https://uat-ibcbank.boostcx.com/Identity/Account/Login";
-        driver.get(uatURL);
+        String pulsecxURL = "https://uat-ibcbank.boostcx.com/Identity/Account/Login";
+        driver.get(pulsecxURL);
         test.log(Status.INFO, "Open the Pulse CX UAT");
 
         WebElement emailField = driver.findElement(By.id("Input_Email"));
 
-        WebElement passwordField = driver.findElement(By.id("Input_Password"));
+        WebElement passwordField = driver.findElement((By.id("Input_Password")));
 
         WebElement loginBtn = driver.findElement(By.id("btn-login"));
 
-        sleep(1);
-        emailField.sendKeys("glcorporate@goallinesolutions.com");
+        sleep(2);
+        emailField.sendKeys(email);
         test.log(Status.INFO, "Inputted the Email");
-
-        sleep(1);
-        passwordField.sendKeys("Goalboost123!");
-        test.log(Status.INFO, "Inputted the Password");
-
-        sleep(1);
-        loginBtn.click();
-        test.log(Status.INFO, "Clicked the Sign In Button");
-
+        try {
+            sleep(2);
+            passwordField.sendKeys(password);
+            test.log(Status.INFO, "Inputted the Password");
+        } catch(StaleElementReferenceException e) {
+            passwordField = driver.findElement(By.id("Input_Password"));
+        }
+        passwordField.sendKeys(password);
+        try {
+            sleep(3);
+            loginBtn.click();
+            test.log(Status.INFO, "Clicked the Sign In Button");
+        } catch(StaleElementReferenceException e) {
+            loginBtn.click();
+        }
         sleep(10);
         CaptureTransaction captureTransaction = new CaptureTransaction(driver, System.getProperty("user.home") + File.separator + "IdeaProjects" + File.separator + "GL-Automation");
         captureTransaction.screenCapture("After_Login_");
@@ -58,8 +66,7 @@ public class LoginPage extends LaunchTest {
         File file = new File("LoginTestData.xlsx");
         FileInputStream inputStream = new FileInputStream(file);
         Workbook workbook = WorkbookFactory.create(inputStream);
-        Sheet sheet = workbook.getSheetAt(0); // Assuming data is in the first sheet
-
+        Sheet sheet = workbook.getSheetAt(0);
         int rowCount = sheet.getLastRowNum();
         int colCount = sheet.getRow(0).getLastCellNum();
         Object[][] data = new Object[rowCount][colCount];
@@ -72,8 +79,8 @@ public class LoginPage extends LaunchTest {
                 data[i - 1][j] = cell.getStringCellValue();
             }
         }
-
         workbook.close();
         return data;
     }
+
 }
