@@ -34,10 +34,13 @@ public class LoginPage extends LaunchTest {
         WebElement passwordField = driver.findElement((By.id("Input_Password")));
 
         WebElement loginBtn = driver.findElement(By.id("btn-login"));
-
-        sleep(2);
-        emailField.sendKeys(email);
-        test.log(Status.INFO, "Inputted the Email");
+        try {
+            sleep(2);
+            emailField.sendKeys(email);
+            test.log(Status.INFO, "Inputted the Email");
+        } catch(StaleElementReferenceException e) {
+            emailField.sendKeys(email);
+        }
         try {
             sleep(2);
             passwordField.sendKeys(password);
